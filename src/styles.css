@@ -1,0 +1,29 @@
+:root {
+  color-scheme: dark;
+  font-family: "Jost", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  --color-bg-main: #161719;
+  --color-bg-app: #111214;
+  --color-bg-canvas: #0c0e11;
+  --color-bg-surface: #202225;
+  --color-bg-card: #282a2e;
+  --color-bg-elevated: #303238;
+  --color-border-strong: #45484e;
+  --rgb-divider: 48 50 55;
+  --color-text-primary: #f2f0ec;
+  --color-text-secondary: #aaa9a8;
+  --color-text-muted: #77787c;
+  --color-danger: #ef7770;
+  --color-success: #83caa0;
+  --duration-fast: 150ms;
+  --duration-base: 240ms;
+  --duration-page: 360ms;
+  --motion-duration-page: 360ms;
+  --easing-standard: cubic-bezier(.2, 0, .2, 1);
+  --easing-emphasized: cubic-bezier(.22, 1, .36, 1);
+}
+* { box-sizing: border-box; }
+html, body, #app { margin: 0; padding: 0; width: 100%; height: 100%; min-width: 820px; overflow: hidden; }
+body { background: var(--color-bg-app); color: var(--color-text-primary); }
+button, input, select, textarea { font: inherit; }
+.demo-shell { width: 100%; height: 100%; position: relative; }
+.demo-stamp { position: fixed; bottom: 8px; right: 16px; z-index: 4; opacity: .55; pointer-events: none; font: 9px "JetBrains Mono", monospace; color: #f0bd4f; letter-spacing: .09em; }
