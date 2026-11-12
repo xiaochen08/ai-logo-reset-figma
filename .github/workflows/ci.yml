@@ -1,0 +1,19 @@
+name: UI design sandbox checks
+on:
+  push:
+  pull_request:
+jobs:
+  web-build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: package.json
+      - run: npm install --no-audit --no-fund
+      - run: npm run build
+      - run: npm run typecheck

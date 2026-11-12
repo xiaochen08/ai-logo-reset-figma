@@ -168,7 +168,7 @@ const createWorkspace = (projectId: string) => {
     history.lastAt = now
   }
 
-  const photoUrl = (photo: Pick<ResetPhoto, 'id'>) => `${state.originalsBase}/${photo.id}`
+  const photoUrl = (photo: Pick<ResetPhoto, 'id'>) => window.__aiLogoDemoPhotoUrls?.[photo.id] ?? `${state.originalsBase}/${photo.id}`
   const sync = () => projectActions.touch(projectId, { photoCount: state.photos.length })
 
   // Scene edits are saved as a whole, debounced; writes share the project's revision queue.

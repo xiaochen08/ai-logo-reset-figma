@@ -107,6 +107,11 @@ const findTask = (key: string) => queue.find(task => task.key === key) ?? [...ru
 export const requestScaled = (photoId: string, kind: ScaleKind, source: Blob | string, priority = 0, mask?: string): Promise<ScaleResult> => {
   cancelled.delete(photoId)
   if (kind === 'thumb') delete thumbFailures[photoId]
+  // Demo SVG artwork loads directly so browser worker image decoders need no SVG support.
+  if (typeof source === 'string' && source.startsWith('/demo/photos/') && source.endsWith('.svg') && kind !== 'foreground') {
+    storeOf(kind)[photoId] = source
+    return Promise.resolve({url:source,width:0,height:0})
+  }
   const cached = storeOf(kind)[photoId]
   if (cached) {
     touch(kind, photoId)
